@@ -1,0 +1,42 @@
+BoxLayoutExample:
+
+<BoxLayoutExample>:
+    orientation: "vertical"
+    Label:
+        text: "Gestionnaire de budget"
+    TextInput:
+        id: expense_text
+        hint_text: "Montant de la dépense"
+    TextInput:
+        id: expense_desc
+        hint_text: "Description de la dépense"
+    Spinner:
+        id: expense_spinner
+        text: "catégories"
+        values: "Alimentation", "Loisir", "Transport", "Autre"
+    Button:
+        id: expense_button
+        text: "Ajouter la dépense"
+        on_press: app.add_expense(expense_text.text, expense_spinner.text, expense_desc.text)
+    TextInput:
+        id: income_text
+        hint_text: "Montant du revenu"
+    TextInput:
+        id: income_desc
+        hint_text: "Description du revenu"
+    Button:
+        id: income_button
+        text: "Ajouter le revenu"
+        on_press: app.add_income(income_text.text, income_desc.text)
+    Button:
+        id: expense_show
+        text: "Afficher tous les dépenses"
+        on_press: app.show_all_expenses()
+    Button:
+        id: income_show
+        text: "Afficher toutes les revenus"
+        on_press: app.show_all_incomes()
+    Label:
+        id: solde
+        text: app.solde_text
+        multiline: True
